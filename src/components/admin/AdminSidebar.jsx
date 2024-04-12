@@ -24,11 +24,11 @@ const AdminSidebar = () => {
           <LayoutDashboard size={24} />
           <span>Dashboard</span>
         </Link>
-        <Link to="/admin" className="flex items-center gap-2 p-4 hover:bg-gray-700 transition">
+        <Link to="/admin/" className="flex items-center gap-2 p-4 hover:bg-gray-700 transition">
           <Users size={24} />
           <span>Manage Users</span>
         </Link>
-        <Link to="/admin" className="flex items-center gap-2 p-4 hover:bg-gray-700 transition">
+        <Link to="/admin/vendors" className="flex items-center gap-2 p-4 hover:bg-gray-700 transition">
           <Users size={24} />
           <span>Manage Vendors</span>
         </Link>

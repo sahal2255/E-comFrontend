@@ -39,7 +39,7 @@ const VendorRegistration = () => {
 
       console.log("Form Data:", Object.fromEntries(formData.entries())); // Debugging
       const res = await VendorRegister(formData);
-      navigate("/vendor/");
+      navigate("/vendor/login");
     } catch (error) {
       message.error("Registration failed!");
     }

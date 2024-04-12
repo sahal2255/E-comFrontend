@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 const AdminNavbar = () => {
 
   const admin=useSelector(state=>state.admin.admin)
-  console.log('admin data in navbar',admin)
+  // console.log('admin data in navbar',admin)
   return (
     <div className='min-h-20 p-4 rounded-full '>
       <div className='flex justify-end items-center'>
