@@ -1,14 +1,15 @@
-import React from 'react'
-import { Routes,Route } from 'react-router-dom'
-import Home from '../Pages/user/Home'
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "../Pages/user/Home";
+import UserLayout from "../Layouts/UserLayout";
 const UserRoute = () => {
   return (
-    <div>
       <Routes>
-        <Route path='/' element={<Home />}/>
+        <Route path="/" element={<UserLayout />} >
+        <Route index element={<Home />} />
+        </Route>
       </Routes>
-    </div>
-  )
-}
+  );
+};
 
-export default UserRoute
+export default UserRoute;
