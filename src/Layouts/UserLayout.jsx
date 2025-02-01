@@ -1,5 +1,5 @@
 import React from "react";
-import UserNavbar from "../components/usercomponent/UserNavbar";
+import UserNavbar from "../components/user/UserNavbar";
 import { Outlet } from "react-router-dom"; // To render nested routes
 
 const UserLayout = ({ children }) => {
