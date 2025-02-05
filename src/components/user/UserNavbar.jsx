@@ -8,7 +8,7 @@ const UserNavbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="bg-amber-800 text-white min-h-16 px-6 flex justify-between items-center">
+    <nav className="bg-amber-800 text-white min-h-20 px-6 flex justify-between items-center">
       <div className="text-xl font-bold">LOGO</div>
 
       <ul className="hidden md:flex gap-6 text-lg">
