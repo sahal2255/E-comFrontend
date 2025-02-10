@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { AiOutlineMail } from "react-icons/ai";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { AdminLoginServiceFun } from '../../services/adminservices/AdminLoginService';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const AdminLogin = () => {
   const { register, formState: { errors }, handleSubmit } = useForm();
-  const onSubmit = async(data) => {
+  const navigate = useNavigate();
+
+ 
+  const onSubmit = async (data) => {
     try {
-        const response=await AdminLoginServiceFun(data)
+      const res = await AdminLoginServiceFun(data);
+      toast.success(res.data.message)
+      navigate('/admin'); // Redirect to admin dashboard after login
     } catch (error) {
-        
+      console.error("Login failed", error);
     }
-  }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -23,14 +30,14 @@ const AdminLogin = () => {
             <label className="mb-1 text-gray-600" htmlFor="mail">Email</label>
             <div className="relative">
               <input 
-                {...register("mail", { required: "Email Address is required" })} 
-                aria-invalid={errors.mail ? "true" : "false"} 
-                className={`p-2 rounded border w-full ${errors.mail ? 'border-red-500' : 'border-gray-300'}`} 
+                {...register("email", { required: "Email Address is required" })} 
+                aria-invalid={errors.email ? "true" : "false"} 
+                className={`p-2 rounded border w-full ${errors.email ? 'border-red-500' : 'border-gray-300'}`} 
                 placeholder="Enter your email"
               />
               <AiOutlineMail className="absolute top-2.5 right-3 text-gray-500" />
             </div>
-            {errors.mail && <p role="alert" className="text-red-500 text-sm mt-1">{errors.mail?.message}</p>}
+            {errors.email && <p role="alert" className="text-red-500 text-sm mt-1">{errors.email?.message}</p>}
           </div>
 
           <div className="flex flex-col">

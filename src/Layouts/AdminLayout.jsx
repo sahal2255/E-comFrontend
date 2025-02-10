@@ -41,7 +41,7 @@ const AdminLayout = ({ children }) => {
         <div className="w-1/4 hidden md:block pt-20">
           <AdminSidebar />
         </div>
-        <div className="pt-20 p-4 w-full md:w-3/4 overflow-y-auto">
+        <div className="w-full pt-20 md:w-3/4 p-4 max-h-screen overflow-y-auto">
           {children || <Outlet />}
         </div>
       </div>
