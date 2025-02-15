@@ -4,18 +4,24 @@ import { AiOutlineMail } from "react-icons/ai";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { AdminLoginServiceFun } from '../../services/adminservices/AdminLoginService';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { loginAdmin } from '../../redux/adminSlice';
 import toast from 'react-hot-toast';
 
 const AdminLogin = () => {
   const { register, formState: { errors }, handleSubmit } = useForm();
   const navigate = useNavigate();
-
- 
+  console.log('login component')
+  const dispatch=useDispatch()
   const onSubmit = async (data) => {
+
     try {
       const res = await AdminLoginServiceFun(data);
       toast.success(res.data.message)
-      navigate('/admin'); // Redirect to admin dashboard after login
+      if (res.data.success) {
+        dispatch(loginAdmin(res.data.admin));
+        navigate("/admin/");
+      }
     } catch (error) {
       console.error("Login failed", error);
     }

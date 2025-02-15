@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import AdminNavbar from "../components/admin/AdminNavbar";
-import AdminSidebar from '../components/admin/AdminSidebar';
+import AdminSidebar from "../components/admin/AdminSidebar";
 import { BiMenu, BiX } from "react-icons/bi"; // BiX is the close icon
 
 const AdminLayout = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  // const { isAuth } = useSelector((state) => state.admin);
+  // useEffect(() => {
+  //   if (!isAuth) {
+  //     dispatch(checkAdminAuth());
+  //   }
+  // }, [dispatch, isAuth]);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -16,20 +22,20 @@ const AdminLayout = ({ children }) => {
       <header className="w-full fixed bg-amber-900 shadow-lg z-50 flex items-center justify-between md:justify-end px-4">
         <div className="md:hidden">
           {isOpen ? (
-            <BiX 
-              className="text-white text-3xl cursor-pointer" 
+            <BiX
+              className="text-white text-3xl cursor-pointer"
               onClick={toggleSidebar}
             />
           ) : (
-            <BiMenu 
-              className="text-white text-3xl cursor-pointer" 
+            <BiMenu
+              className="text-white text-3xl cursor-pointer"
               onClick={toggleSidebar}
             />
           )}
         </div>
         <AdminNavbar />
       </header>
-      
+
       <div className="flex">
         {isOpen && (
           <div className="fixed w-1/2 inset-0 z-40 bg-amber-900 bg-opacity-75 md:hidden">
