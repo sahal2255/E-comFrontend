@@ -15,8 +15,7 @@ const UserNavbar = () => {
         <li><Link to="/" className="hover:text-gray-400">Home</Link></li>
         <li><Link to="/" className="hover:text-gray-400">About</Link></li>
         <li><Link to="/" className="hover:text-gray-400">Contact</Link></li>
-        <li><Link to="/" className="hover:text-gray-400">profle</Link></li>
-
+        
       </ul>
 
       <div className="md:hidden">
